@@ -33,6 +33,7 @@ public class HomeActivity extends Activity {
 	ArrayList<String> allWoList;
 	Object[] listPositions;
 	ListView workoutList;
+	Button bCreateNew;
 	
 	
 	@Override
@@ -48,8 +49,17 @@ public class HomeActivity extends Activity {
         }
         
         contextMenuItems = getResources().getStringArray(R.array.context_menu_items);
-        
          workoutList = (ListView) findViewById(R.id.listView1);
+         bCreateNew = (Button) findViewById(R.id.bCreateNew);
+         bCreateNew.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//open the dialog to create a new workout
+				openWorkoutDialog();
+			}
+		});
+       
          allWoList = db.getAllWorkouts();
         // listPositions = allWoList.toArray();
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.listviewfill,R.id.list_content,allWoList);
@@ -60,10 +70,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
-				if(position==0)
-				{
-					openWorkoutDialog();
-				}
+				//toDo add the intent to run the workout
 				Object o = workoutList.getItemAtPosition(position);
 				String str = (String)o;
 
@@ -109,7 +116,7 @@ public class HomeActivity extends Activity {
     
     private void firstRunSetup() {
 		// TODO Auto-generated method stub
-    	db.addWorkout(res.getString(R.string.woCreate));
+    	//db.addWorkout(res.getString(R.string.woCreate));
     	db.addExcercise("Chest Press", "Chest", "Barbell");
 		
 	}

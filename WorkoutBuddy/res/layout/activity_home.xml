@@ -11,13 +11,23 @@
             android:layout_centerHorizontal="true"
             android:text="Workout List"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <Button
+            android:id="@+id/bCreateNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView1"
+            android:text="Create new workout" />
 
         <ListView
             android:id="@+id/listView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
+            android:layout_below="@+id/bCreateNew"
             android:layout_centerHorizontal="true" >
         </ListView>
+
+        
 
     </RelativeLayout>

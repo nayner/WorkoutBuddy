@@ -116,6 +116,17 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		db.close();
 	}
 	
+	void addExcercise(String exerciseName, String bodyPart, String equiptment){
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		values.put(EXCERCISE_NAME, exerciseName);
+		values.put(EXCERCISE_AREA, bodyPart);
+		values.put(EXCERCISE_EQUIPTMENT, equiptment);
+		db.insert(EXCERCISE_TABLE, null, values);
+		Log.d("Excercise added", exerciseName);
+		db.close();
+	}
+	
 	void deleteWorkout(String woName)
 	{
 		SQLiteDatabase db = this.getWritableDatabase();

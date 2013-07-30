@@ -7,8 +7,8 @@
     <string name="title_activity_create_workout">CreateWorkout</string>
     <string name="woCreate">Create New Workout</string>
     <string-array name="context_menu_items">
-        <item >Edit Workout</item>
-        <item >Delete Workout</item>
+        <item name="edit" >Edit Workout</item>
+        <item name="delete" >Delete Workout</item>
     </string-array>
 
 </resources>

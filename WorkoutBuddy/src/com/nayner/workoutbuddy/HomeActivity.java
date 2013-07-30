@@ -70,7 +70,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
-				//toDo add the intent to run the workout
+				// TODO add the intent to run the workout
 				Object o = workoutList.getItemAtPosition(position);
 				String str = (String)o;
 
@@ -107,6 +107,14 @@ public class HomeActivity extends Activity {
 	  Object o = workoutList.getItemAtPosition(info.position);
 		String str = (String)o;
 	  String listItemName = str;
+	  if(menuItemIndex == 1)// for now 1 is delete in the menu
+	  {
+		 //delete the workout named str
+		  db.deleteWorkout(str);
+		  //this reloads the activity
+		  finish();
+		  startActivity(getIntent());
+	  }
 
 	 // TextView text = (TextView)findViewById(R.id.footer);
 	  //text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));

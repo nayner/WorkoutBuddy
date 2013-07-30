@@ -30,6 +30,10 @@ public class HomeActivity extends Activity {
 	EditText workoutName;
 	DatabaseHandler db;
 	Resources res;
+	ArrayList<String> allWoList;
+	Object[] listPositions;
+	ListView workoutList;
+	
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +49,10 @@ public class HomeActivity extends Activity {
         
         contextMenuItems = getResources().getStringArray(R.array.context_menu_items);
         
-        final ListView workoutList = (ListView) findViewById(R.id.listView1);
-        final ArrayList<String> list = db.getAllWorkouts();
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.listviewfill,R.id.list_content,list);
+         workoutList = (ListView) findViewById(R.id.listView1);
+         allWoList = db.getAllWorkouts();
+        // listPositions = allWoList.toArray();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.listviewfill,R.id.list_content,allWoList);
         workoutList.setAdapter(adapter);
         workoutList.setClickable(true);
         workoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,11 +72,7 @@ public class HomeActivity extends Activity {
 			}	
 		});
         
-        
-        
        registerForContextMenu(workoutList);
-       
-        
     }
 	
 	@Override
@@ -79,7 +80,9 @@ public class HomeActivity extends Activity {
 	    ContextMenuInfo menuInfo) {
 	  if (v.getId()==R.id.listView1) {
 	    AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-	    menu.setHeaderTitle(contextMenuItems[info.position]);
+	    Object o = workoutList.getItemAtPosition(info.position);
+		String str = (String)o;
+	    menu.setHeaderTitle(str);
 	    String[] menuItems = getResources().getStringArray(R.array.context_menu_items);
 	    for (int i = 0; i<menuItems.length; i++) {
 	      menu.add(Menu.NONE, i, i, menuItems[i]);
@@ -93,11 +96,14 @@ public class HomeActivity extends Activity {
 	  int menuItemIndex = item.getItemId();
 	  String[] menuItems = getResources().getStringArray(R.array.context_menu_items);
 	  String menuItemName = menuItems[menuItemIndex];
-	  String listItemName = contextMenuItems[info.position];
+	  
+	  Object o = workoutList.getItemAtPosition(info.position);
+		String str = (String)o;
+	  String listItemName = str;
 
 	 // TextView text = (TextView)findViewById(R.id.footer);
 	  //text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));
-	  Log.d("selected : on", menuItemName);
+	  Log.d("selected : on", menuItemName + " " + listItemName);
 	  return true;
 	}
     

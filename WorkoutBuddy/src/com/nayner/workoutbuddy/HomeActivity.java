@@ -120,9 +120,7 @@ public class HomeActivity extends Activity {
 	      workoutList.setAdapter(adapter);
 		  
 	  }
-
-	 // TextView text = (TextView)findViewById(R.id.footer);
-	  //text.setText(String.format("Selected %s for item %s", menuItemName, listItemName));
+	  
 	  Log.d("selected : on", menuItemName + " " + listItemName);
 	  return true;
 	}

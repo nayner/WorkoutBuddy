@@ -12,7 +12,10 @@
         android:hint = "Workout Name"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:ems="10" />
+        android:ems="10"
+         >
+         <requestFocus />
+         </EditText>
 
     <Button
         android:id="@+id/bWorkout"

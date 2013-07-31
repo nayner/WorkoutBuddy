@@ -43,7 +43,7 @@ public class HomeActivity extends Activity {
         db = new DatabaseHandler(this);
         res = getResources();
         
-        if(DatabaseUtils.queryNumEntries(db.getReadableDatabase(),"workout") == 0)
+        if(DatabaseUtils.queryNumEntries(db.getReadableDatabase(),"excercise") == 0)
         {
         	firstRunSetup();
         }
@@ -107,13 +107,18 @@ public class HomeActivity extends Activity {
 	  Object o = workoutList.getItemAtPosition(info.position);
 		String str = (String)o;
 	  String listItemName = str;
+	  
+	  
 	  if(menuItemIndex == 1)// for now 1 is delete in the menu
 	  {
 		 //delete the workout named str
 		  db.deleteWorkout(str);
-		  //this reloads the activity
-		  finish();
-		  startActivity(getIntent());
+		  allWoList = db.getAllWorkouts();
+		  
+	      //refresh the list.
+	      final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.listviewfill,R.id.list_content,allWoList);
+	      workoutList.setAdapter(adapter);
+		  
 	  }
 
 	 // TextView text = (TextView)findViewById(R.id.footer);

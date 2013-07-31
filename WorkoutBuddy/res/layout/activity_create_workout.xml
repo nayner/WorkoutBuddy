@@ -4,22 +4,22 @@
     android:layout_height="match_parent"
     tools:context=".CreateWorkout" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <Button
+        android:id="@+id/bSelectExcercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="64dp"
+        android:text="Select an Excercise" />
+
+    <Button
+        android:id="@+id/bAdExcercise"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:ems="10" />
+        android:layout_toRightOf="@+id/bSelectExcercise"
+        android:text="+" />
 
 </RelativeLayout>

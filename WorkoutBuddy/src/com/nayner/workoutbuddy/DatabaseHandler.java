@@ -158,6 +158,24 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		db.close();
 		return list;
 	}
+
+	public ArrayList<String> getExcerciseNames() {
+		// TODO Auto-generated method stub
+		ArrayList<String> exList = new ArrayList<String>();
+		//SELECT query string
+		String selectExcercises = "SELECT "+ EXCERCISE_NAME+ " FROM " + EXCERCISE_TABLE;
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery(selectExcercises, null);
+		//loop through returned rows and add to list
+		if(cursor.moveToFirst())
+		{
+			do{
+				exList.add(cursor.getString(0));
+			}while(cursor.moveToNext());
+		}
+		db.close();
+		return exList;
+	}
 	
 	
 	

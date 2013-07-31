@@ -17,23 +17,26 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int bCreateNew=0x7f080002;
-        public static final int bWorkout=0x7f080006;
-        public static final int editText1=0x7f080001;
-        public static final int etWorkoutName=0x7f080005;
-        public static final int listView1=0x7f080003;
-        public static final int list_content=0x7f080004;
-        public static final int menu_settings=0x7f080007;
-        public static final int textView1=0x7f080000;
-        public static final int woMenuDelete=0x7f080009;
-        public static final int woMenuEdit=0x7f080008;
+        public static final int bAdExcercise=0x7f080001;
+        public static final int bCreateNew=0x7f080003;
+        public static final int bSelectExcercise=0x7f080000;
+        public static final int bWorkout=0x7f080008;
+        public static final int etWorkoutName=0x7f080007;
+        public static final int listView1=0x7f080004;
+        public static final int list_content=0x7f080006;
+        public static final int lvDialog=0x7f080005;
+        public static final int menu_settings=0x7f080009;
+        public static final int textView1=0x7f080002;
+        public static final int woMenuDelete=0x7f08000b;
+        public static final int woMenuEdit=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_create_workout=0x7f030000;
         public static final int activity_home=0x7f030001;
         public static final int activity_workout=0x7f030002;
-        public static final int listviewfill=0x7f030003;
-        public static final int workout_dialog_layout=0x7f030004;
+        public static final int list_dialog=0x7f030003;
+        public static final int listviewfill=0x7f030004;
+        public static final int workout_dialog_layout=0x7f030005;
     }
     public static final class menu {
         public static final int activity_create_workout=0x7f070000;
